@@ -1,9 +1,17 @@
 # Deep-Learning Learning
 Lessons, projects and notes taken from my reading of the Jason Brownlee's book: Deep Learning with python
 
+## Installations (ubuntu)
+1. **pip3**: sudo apt install python3-pip
+2. **scikit-learn, numpy and scipy**: pip3 install -U scikit-learn
+3. **theano**: pip3 install --user theano
+4. **tensorflow**: pip3 install --user tensorflow
+5. **BLAS**: sudo apt-get install liblapack-dev
+6. **Masking tensorflow warning**: export TF_CPP_MIN_LOG_LEVEL=2
+
 ## Lessons learned (30-12-2018)
 ### Libraries
-1. **Theano** and **Tensorflow** are two numerical libraries largely used to develop deep learning models. 
+1. **Theano** and **Tensorflow** are two numerical libraries largely used to develop deep learning models.
 2. Is possible to make models directly using Theano and Tensorflow, but the project can get too complex.
 3. The **Keras** library (a python library used to make deep learning models) have as its purpose modulating and masking the complexity of Theano or Tensorflow, depending on which of them are set to be its **backend**.
 4. The construction of deep learning models in Keras can be summarized as:

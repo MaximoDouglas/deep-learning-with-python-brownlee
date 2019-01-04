@@ -1,5 +1,6 @@
 from keras.models import Sequential
 from keras.layers import Dense
+from sklearn import preprocessing
 import numpy
 import pandas as pd
 
@@ -12,7 +13,8 @@ numpy.random.seed(seed)
 df = pd.read_csv("./data/pima-indians-diabetes_labeled.csv")
 
 # split into input (X) and output (y) variables
-X = df.drop(['class'], 1, inplace=False)
+#    scale X using sklearn preprocessing
+X = preprocessing.scale(numpy.array(df.drop(['class'],1)))
 y = df['class']
 
 # create model

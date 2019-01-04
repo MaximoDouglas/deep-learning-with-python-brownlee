@@ -3,6 +3,7 @@ from keras.layers import Dense
 from sklearn import preprocessing
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Fixed random seed for reproducibility - it allows that no matter if we execute
 #     the code more than one time, the random values have to be the same
@@ -40,4 +41,14 @@ model.add(Dense(1, activation="sigmoid", kernel_initializer="uniform"))
 model.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy'])
 
 # Fit the model
-model.fit(X, y, epochs=150, batch_size=10)
+history = model.fit(X, y, verbose=0, validation_split=0.2, epochs=150, batch_size=10)
+
+# Plot training & validation accuracy values
+plt.plot(history.history['acc'])
+plt.plot(history.history['val_acc'])
+plt.title('Model accuracy')
+plt.ylabel('Accuracy')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Test'], loc='lower right')
+plt.savefig('./data/breast-cancer-wisconsin.png')
+plt.show()

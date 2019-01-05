@@ -28,3 +28,7 @@ of the network predicting each of the class values. Selecting the output with th
 3. **Data Preparation**:
 - **Datatype**: It's important to know, before anything, that data must be numerical. If there is some categorical data, it has to be mapped (converted) to a numerical value. One Hot Encoding is a common transformation of this type, that transforms categorical value to a real-valued representation.
 - **Data-scaling**:
+
+### Important links:
+1. [iloc](https://stackoverflow.com/questions/19155718/select-pandas-rows-based-on-list-index);
+2. [StratifiedKFold](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html);

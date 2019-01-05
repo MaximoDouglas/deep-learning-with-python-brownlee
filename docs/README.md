@@ -8,6 +8,10 @@ Lessons, projects and notes taken from my reading of the Jason Brownlee's book: 
 4. **tensorflow**: pip3 install --user tensorflow
 5. **BLAS**: sudo apt-get install liblapack-dev
 6. **Masking tensorflow warning**: export TF_CPP_MIN_LOG_LEVEL=2
+7. **python3-tk**: sudo apt install python3-tk
+8. **matplotlib**: pip3 install --user matplotlib
+9. **pandas**: pip3 install --user pandas
+10. **keras**: pip3 install --user keras
 
 ## Lessons learned (30-12-2018)
 ### Libraries

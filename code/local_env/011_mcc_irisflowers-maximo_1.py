@@ -36,7 +36,7 @@ def create_model():
   # create model
   model = Sequential()
   model.add(Dense(4, input_dim=4, activation="relu", kernel_initializer="normal"))
-  model.add(Dense(3, init="normal", activation="sigmoid"))
+  model.add(Dense(3, kernel_initializer="normal", activation="sigmoid"))
 
   # Compile model
   model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=['accuracy'])

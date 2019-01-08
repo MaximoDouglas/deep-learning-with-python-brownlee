@@ -9,12 +9,14 @@ import pandas as pd
 seed = 7
 numpy.random.seed(seed)
 
+# Begin data preprocessing
 # load pima indians dataset
 df = pd.read_csv("./data/pima-indians-diabetes_labeled.csv")
 
 # split into input (X) and output (y) variables
 X = df.drop(['class'], 1, inplace=False)
 y = df['class']
+# End of data preprocessing
 
 # define 10-fold cross validation test harness
 kfold = StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)

@@ -9,12 +9,14 @@ from sklearn.model_selection import train_test_split
 seed = 7
 numpy.random.seed(seed)
 
+# Begin data preprocessing
 # load pima indians dataset
 df = pd.read_csv("./data/pima-indians-diabetes_labeled.csv")
 
 # split into input (X) and output (y) variables
 X = df.drop(['class'], 1, inplace=False)
 y = df['class']
+# End of data preprocessing
 
 # split the dataset into training data and validating data
 X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2)

@@ -9,6 +9,7 @@ import pandas as pd
 seed = 7
 numpy.random.seed(seed)
 
+# Begin data preprocessing
 # load pima indians dataset
 df = pd.read_csv("./data/pima-indians-diabetes_labeled.csv")
 
@@ -16,6 +17,7 @@ df = pd.read_csv("./data/pima-indians-diabetes_labeled.csv")
 #    scale X using sklearn preprocessing
 X = preprocessing.scale(numpy.array(df.drop(['class'],1)))
 y = df['class']
+# End of data preprocessing
 
 # create model
 model = Sequential()

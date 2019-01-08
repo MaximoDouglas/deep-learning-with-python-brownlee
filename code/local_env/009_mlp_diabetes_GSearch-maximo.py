@@ -4,6 +4,7 @@ from keras.layers import Dense
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import GridSearchCV
 import numpy
+import pandas as pd
 
 # Function to create model, required for KerasClassifier
 def create_model(optimizer="rmsprop", init="glorot_uniform"):
@@ -23,15 +24,15 @@ numpy.random.seed(seed)
 
 # Begin data preprocessing
 # load pima indians dataset
-dataset = numpy.loadtxt("./data/pima-indians-diabetes.csv", delimiter=",")
+df = pd.read_csv("./data/pima-indians-diabetes_labeled.csv")
 
-# split into input (X) and output (Y) variables
-X = dataset[:,0:8]
-y = dataset[:,8]
+# split into input (X) and output (y) variables
+X = df.drop(['class'], 1, inplace=False)
+y = df['class']
 # End of data preprocessing
 
 # create model
-model = KerasClassifier(build_fn=create_model, verbose=0)
+model = KerasClassifier(build_fn=create_model)
 
 # grid search epochs, batch size and optimizer
 optimizers = ['rmsprop', 'adam']

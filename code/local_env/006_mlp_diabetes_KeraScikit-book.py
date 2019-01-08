@@ -22,12 +22,14 @@ def create_model():
 seed = 7
 numpy.random.seed(seed)
 
+# Begin data preprocessing
 # load pima indians dataset
 dataset = numpy.loadtxt("./data/pima-indians-diabetes.csv", delimiter=",")
 
 # split into input (X) and output (Y) variables
 X = dataset[:,0:8]
 y = dataset[:,8]
+# End of data preprocessing
 
 # create model
 model = KerasClassifier(build_fn=create_model, epochs=150, batch_size=10)

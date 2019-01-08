@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 seed = 7
 np.random.seed(seed)
 
+# Begin data preprocessing
 # load pima indians dataset
 df = pd.read_csv("./data/breast-cancer-wisconsin.csv")
 
@@ -28,6 +29,7 @@ df['class'].replace((4, 2), (1, 0), inplace=True)
 
 # Getting the output y from the df, after the transformation
 y = df['class']
+# End of data preprocessing
 
 # create model
 model = Sequential()

@@ -32,6 +32,8 @@ of the network predicting each of the class values. Selecting the output with th
 3. **Data Preparation**:
 - **Datatype**: It's important to know, before anything, that data must be numerical. If there is some categorical data, it has to be mapped (converted) to a numerical value. One Hot Encoding is a common transformation of this type, that transforms categorical value to a real-valued representation.
 - **Data-scaling**: Data-scaling is important, but it can cause overfitting in the model. 
+
+### Multiclass Classification
 - **kFold vs Stractified-kFold**: If you want that folds do not adapt to the percentage of the classes, just use kFold (in this case, you have to make the One Hot Enconding, passing the class in a dummy format to the model evaluation with cross_val_score). If you want that the folds consider the percentege of the classes in the fold splits, you have to use Stractfied-kFold, which takes a 1D array (not a hot encond format) with the classes. So, using kFold, **y** have to be on a one hot enconding format (see **/code/local_env/010_mcc_irisflowers-book.py**), whilst Stractfied-kFold takes a list with the classes integer values (see **/code/local_env/011_mcc_irisflowers-maximo_1.py**). 
 
 ### Important links:

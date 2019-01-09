@@ -17,7 +17,7 @@ seed = 7
 numpy.random.seed(seed)
 
 # load dataset
-dataframe = pandas.read_csv("./data/sonar.data", header=None)
+dataframe = pandas.read_csv("../data/sonar.data", header=None)
 dataset = dataframe.values
 
 # split into input (X) and output (Y) variables

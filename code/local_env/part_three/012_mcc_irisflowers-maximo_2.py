@@ -20,7 +20,7 @@ numpy.random.seed(seed)
 # ------- Begin data preprocessing
 
 # load dataset
-df = pd.read_csv("./data/iris.data", header=None)
+df = pd.read_csv("../data/iris.data", header=None)
 X = preprocessing.scale(numpy.array(df.drop(df.columns[-1],1)))
 y = df[df.columns[-1]]
 

@@ -3,6 +3,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from sklearn.model_selection import StratifiedKFold
 import numpy
+import pandas as pd
 
 # fix random seed for reproducibility
 seed = 7
@@ -10,18 +11,18 @@ numpy.random.seed(seed)
 
 # Begin data preprocessing
 # load pima indians dataset
-dataset = numpy.loadtxt("./data/pima-indians-diabetes.csv", delimiter=",")
+df = pd.read_csv("../data/pima-indians-diabetes_labeled.csv")
 
-# split into input (X) and output (Y) variables
-X = dataset[:,0:8]
-Y = dataset[:,8]
+# split into input (X) and output (y) variables
+X = df.drop(['class'], 1, inplace=False)
+y = df['class']
 # End of data preprocessing
 
 # define 10-fold cross validation test harness
 kfold = StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)
 cvscores = []
 
-for (train, test) in kfold.split(X, Y):
+for (train, test) in kfold.split(X, y):
   # create model
   model = Sequential()
   model.add(Dense(12, input_dim=8, activation="relu", kernel_initializer="uniform"))
@@ -32,10 +33,10 @@ for (train, test) in kfold.split(X, Y):
   model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
   # Fit the model
-  history = model.fit(X[train], Y[train], epochs=150, batch_size=10, verbose=0)
+  model.fit(X.iloc[train], y.iloc[train], epochs=150, batch_size=10, verbose=0)
 
   # evaluate the model
-  scores = model.evaluate(X[test], Y[test], verbose=0)
+  scores = model.evaluate(X.iloc[test], y.iloc[test], verbose=0)
   print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
   cvscores.append(scores[1] * 100)
 

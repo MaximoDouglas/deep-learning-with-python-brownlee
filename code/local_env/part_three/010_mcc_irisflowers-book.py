@@ -19,7 +19,7 @@ numpy.random.seed(seed)
 # ------- Begin data preprocessing
 
 # load dataset
-dataframe = pandas.read_csv("./data/iris.data", header=None)
+dataframe = pandas.read_csv("../data/iris.data", header=None)
 dataset = dataframe.values
 X = dataset[:,0:4].astype(float)
 Y = dataset[:,4]

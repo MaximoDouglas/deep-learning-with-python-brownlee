@@ -24,7 +24,7 @@ numpy.random.seed(seed)
 
 # Begin data preprocessing
 # load pima indians dataset
-df = pd.read_csv("./data/pima-indians-diabetes_labeled.csv")
+df = pd.read_csv("../data/pima-indians-diabetes_labeled.csv")
 
 # split into input (X) and output (y) variables
 X = df.drop(['class'], 1, inplace=False)

@@ -1,7 +1,7 @@
 # MLP for Pima Indians Dataset Serialize to JSON and HDF5
 from keras.models import Sequential
 from keras.layers import Dense
-from keras.models import model_from_json
+from keras.models import model_from_yaml
 import numpy
 import os
 
@@ -34,24 +34,24 @@ scores = model.evaluate(X, Y)
 print("Pre-loaded | %s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 
 # Saving model and weights
-# serialize model to JSON
-model_json = model.to_json()
-with open("../models_weights/001.json", "w") as json_file:
-    json_file.write(model_json)
+# serialize model to YAML
+model_yaml = model.to_yaml()
+with open("../saved_models_and_weights/023.yaml", "w") as yaml_file:
+    yaml_file.write(model_yaml)
 
 # serialize weights to HDF5
-model.save_weights("../models_weights/001.h5")
+model.save_weights("../saved_models_and_weights/023.h5")
 # End saving model and weights
 
 # Loading model and weights
 # load model
-json_file = open('../models_weights/001.json','r')
-loaded_model_json = json_file.read()
-json_file.close()
-loaded_model = model_from_json(loaded_model_json)
+yaml_file = open('../saved_models_and_weights/023.yaml', 'r')
+loaded_model_yaml = yaml_file.read()
+yaml_file.close()
+loaded_model = model_from_yaml(loaded_model_yaml)
 
 # load weights into new model
-loaded_model.load_weights("../models_weights/001.h5")
+loaded_model.load_weights("../saved_models_and_weights/023.h5")
 # End loading model and weights
 
 # evaluate loaded model on test data

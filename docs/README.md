@@ -94,6 +94,32 @@ by a factor of 10 to 100 and use a high momentum value of 0.9 or 0.99.
 network weights. Imposing a constraint on the size of network weights such as max-norm
 regularization with a size of 4 or 5 has been shown to improve results.
 
+### CNN Best Practices
+1. Input Receptive Field Dimensions: The default is 2D for images, but could be 1D
+such as for words in a sentence or 3D for video that adds a time dimension.
+2. Receptive Field Size: The patch should be as small as possible, but large enough to
+see features in the input data. It is common to use 3 × 3 on small images and 5 × 5 or
+7 × 7 and more on larger image sizes.
+3. Stride Width: Use the default stride of 1. It is easy to understand and you don’t need
+padding to handle the receptive field falling off the edge of your images. This could be
+increased to 2 or larger for larger images.
+4. Number of Filters: Filters are the feature detectors. Generally fewer filters are used at
+the input layer and increasingly more filters used at deeper layers.
+5. Padding: Set to zero and called zero padding when reading non-input data. This is
+useful when you cannot or do not want to standardize input image sizes or when you want
+to use receptive field and stride sizes that do not neatly divide up the input image size.
+6. Pooling: Pooling is a destructive or generalization process to reduce overfitting. Receptive
+field size is almost always set to 2 × 2 with a stride of 2 to discard 75% of the activations
+from the output of the previous layer.
+7. Data Preparation: Consider standardizing input data, both the dimensions of the
+images and pixel values.
+8. Pattern Architecture: It is common to pattern the layers in your network architecture.
+This might be one, two or some number of convolutional layers followed by a pooling layer.
+This structure can then be repeated one or more times. Finally, fully connected layers are
+often only used at the output end and may be stacked one, two or more deep.
+9. Dropout: CNNs have a habit of overfitting, even with pooling layers. Dropout should be
+used such as between fully connected layers and perhaps after pooling layers.
+
 ### TODO
 1. Study Dropout Regularization - search for "norm of the weights"
 2. Study [SGD](https://keras.io/optimizers/).

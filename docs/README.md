@@ -43,13 +43,13 @@ of the network predicting each of the class values. Selecting the output with th
 1. Predictions takes as argument the input X (to be predicted) as a numpy array or a numpy array of lists (when the model takes more then one input value (in a model that the data have 8 features, the second option would be used (a numpy array of lists))).
 2. Predictions can be made without re-compiling an loaded model.
 3. There are basically two ways of predicting models:
-- **model.predict(X)**: which returns one or more numpy arrays of predictions. 
+- **model.predict(X)**: which returns one or more numpy arrays of predictions.
 
-   - If it is a multi-class classifier, for example, it will return, for a single entry X to be predict, a numpy array of probabilities of each class being the right one. 
+   - If it is a multi-class classifier, for example, it will return, for a single entry X to be predict, a numpy array of probabilities of each class being the right one.
 
-   - If it is a binary classifier, it will return a float value, which can be read as: the chosen class is the most next to this value. So, if the return is 0.9, the most probable class is 1. 
+   - If it is a binary classifier, it will return a float value, which can be read as: the chosen class is the most next to this value. So, if the return is 0.9, the most probable class is 1.
 
-   - If it is a regression model, the output will be the predicted value for the X entry. 
+   - If it is a regression model, the output will be the predicted value for the X entry.
 
 - **model.predict_classes(X)**: which returns the index of the predicted class in the array of classes.
 
@@ -78,6 +78,9 @@ will produce a output like:
 - When it's necessary to evaluate the loaded model.
 - When it's wanted to train the loaded model, with the same or other parameters.
 2. [Important Link](https://stackoverflow.com/questions/47995324/does-model-compile-initialize-all-the-weights-and-biases-in-keras-tensorflow) - Stackoverflow topic where I learned most of it.
+
+### TODO
+1. Study Dropout Regularization
 
 ### Important links:
 1. [iloc](https://stackoverflow.com/questions/19155718/select-pandas-rows-based-on-list-index);

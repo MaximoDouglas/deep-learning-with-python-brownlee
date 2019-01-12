@@ -81,6 +81,7 @@ will produce a output like:
 
 ### TODO
 1. Study Dropout Regularization
+2. Study [SGD](https://keras.io/optimizers/)
 
 ### Important links:
 1. [iloc](https://stackoverflow.com/questions/19155718/select-pandas-rows-based-on-list-index);

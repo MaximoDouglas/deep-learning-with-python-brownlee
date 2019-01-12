@@ -80,7 +80,7 @@ will produce a output like:
 2. [Important Link](https://stackoverflow.com/questions/47995324/does-model-compile-initialize-all-the-weights-and-biases-in-keras-tensorflow) - Stackoverflow topic where I learned most of it.
 
 ### TODO
-1. Study Dropout Regularization
+1. Study Dropout Regularization - search for "norm of the weights"
 2. Study [SGD](https://keras.io/optimizers/)
 
 ### Important links:

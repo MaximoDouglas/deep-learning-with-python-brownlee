@@ -79,9 +79,26 @@ will produce a output like:
 - When it's wanted to train the loaded model, with the same or other parameters.
 2. [Important Link](https://stackoverflow.com/questions/47995324/does-model-compile-initialize-all-the-weights-and-biases-in-keras-tensorflow) - Stackoverflow topic where I learned most of it.
 
+### Dropout regularization - copied from the book
+1. Generally use a small dropout value of 20%-50% of neurons with 20% providing a good
+starting point. A probability too low has minimal effect and a value too high results in
+under-learning by the network.
+2. Use a larger network. You are likely to get better performance when dropout is used
+on a larger network, giving the model more of an opportunity to learn independent
+representations.
+3. Use dropout on input (visible) as well as hidden layers. Application of dropout at each
+layer of the network has shown good results.
+4. Use a large learning rate with decay and a large momentum. Increase your learning rate
+by a factor of 10 to 100 and use a high momentum value of 0.9 or 0.99.
+5. Constrain the size of network weights. A large learning rate can result in very large
+network weights. Imposing a constraint on the size of network weights such as max-norm
+regularization with a size of 4 or 5 has been shown to improve results.
+
 ### TODO
 1. Study Dropout Regularization - search for "norm of the weights"
-2. Study [SGD](https://keras.io/optimizers/)
+2. Study [SGD](https://keras.io/optimizers/).
+3. Study sgd's momentum.
+4. Write the Dropout section with my words.
 
 ### Important links:
 1. [iloc](https://stackoverflow.com/questions/19155718/select-pandas-rows-based-on-list-index);

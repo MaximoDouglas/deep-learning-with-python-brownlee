@@ -57,6 +57,7 @@ of the network predicting each of the class values. Selecting the output with th
 - **model.predict(X)** example (pima indians diabetes dataset):
 ```python
   prediction = loaded_model.predict(numpy.array([[1,85,66,29,0,26.6,0.351,31]]))
+  print(prediction)
 ```
 will produce a output like:
 ```console
@@ -65,6 +66,7 @@ will produce a output like:
 - **model.predict_classes(X)** example (pima indians diabetes dataset):
 ```python
   prediction = loaded_model.predict_classes(numpy.array([[1,85,66,29,0,26.6,0.351,31]]))
+  print(prediction)
 ```
 will produce a output like:
 ```console

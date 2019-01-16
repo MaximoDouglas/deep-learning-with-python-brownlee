@@ -16,7 +16,7 @@ numpy.random.seed(seed)
 # load the dataset but only keep the top n words, zero the rest
 top_words = 5000
 test_split = 0.33
-(X_train, y_train), (X_test, y_test) = imdb.load_data(nb_words=top_words, seed=seed)
+(X_train, y_train), (X_test, y_test) = imdb.load_data(num_words=top_words, seed=seed)
 
 # pad dataset to a maximum review length in words
 max_words = 500

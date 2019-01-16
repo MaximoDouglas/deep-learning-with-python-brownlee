@@ -1,4 +1,4 @@
-# Simple CNN model for the CIFAR-10 Dataset
+# Large CNN model for the CIFAR-10 Dataset
 import numpy
 from keras.datasets import cifar10
 from keras.models import Sequential
@@ -31,13 +31,25 @@ num_classes = y_test.shape[1]
 
 # Create the model
 model = Sequential()
-model.add(Convolution2D(filters=32, kernel_size=(3, 3), input_shape=(32, 32, 3), padding='same', activation='relu', kernel_constraint=maxnorm(3)))
+model.add(Convolution2D(filters=32, kernel_size=(3, 3), input_shape=(32, 32, 3), activation='relu',
+padding='same'))
 model.add(Dropout(rate=0.2, seed=seed))
-model.add(Convolution2D(filters=32, kernel_size=(3, 3), activation='relu', padding='same', kernel_constraint=maxnorm(3)))
+model.add(Convolution2D(filters=32, kernel_size=(3, 3), activation='relu', padding='same'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Convolution2D(filters=64, kernel_size=(3, 3), activation='relu', padding='same'))
+model.add(Dropout(rate=0.2, seed=seed))
+model.add(Convolution2D(filters=64, kernel_size=(3, 3), activation='relu', padding='same'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Convolution2D(filters=128, kernel_size=(3, 3), activation='relu', padding='same'))
+model.add(Dropout(rate=0.2, seed=seed))
+model.add(Convolution2D(filters=128, kernel_size=(3, 3), activation='relu', padding='same'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Flatten())
-model.add(Dense(512, activation='relu', kernel_constraint=maxnorm(3)))
-model.add(Dropout(rate=0.5, seed=seed))
+model.add(Dropout(rate=0.2, seed=seed))
+model.add(Dense(units=1024, activation='relu', kernel_constraint=maxnorm(3)))
+model.add(Dropout(rate=0.2, seed=seed))
+model.add(Dense(units=512, activation='relu', kernel_constraint=maxnorm(3)))
+model.add(Dropout(rate=0.2, seed=seed))
 model.add(Dense(num_classes, activation='softmax'))
 
 # Compile model
@@ -49,8 +61,7 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 print(model.summary())
 
 # Fit the model
-model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=epochs,
-batch_size=32, verbose=2)
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=epochs, batch_size=64)
 
 # Final evaluation of the model
 scores = model.evaluate(X_test, y_test, verbose=0)

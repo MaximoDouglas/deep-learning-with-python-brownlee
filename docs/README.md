@@ -128,6 +128,7 @@ used such as between fully connected layers and perhaps after pooling layers.
 3. Study sgd's momentum.
 4. Write the Dropout section with my words.
 5. Write the CNN Best Practices section with my words.
+6. Study word embeddings.
 
 ### Important links:
 1. [iloc](https://stackoverflow.com/questions/19155718/select-pandas-rows-based-on-list-index);

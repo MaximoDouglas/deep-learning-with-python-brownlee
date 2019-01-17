@@ -32,6 +32,7 @@ def baseline_model():
     model = Sequential()
     model.add(Dense(num_pixels, input_dim=num_pixels, kernel_initializer='normal', activation='relu'))
     model.add(Dense(num_classes, kernel_initializer='normal', activation='softmax'))
+    ann_viz(model, title="My first neural network")
     # Compile model
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     return model
@@ -45,4 +46,3 @@ verbose=2)
 
 # Final evaluation of the model
 scores = model.evaluate(X_test, y_test)
-print("Baseline Error: %.2f%%" % (100-scores[1]*100))

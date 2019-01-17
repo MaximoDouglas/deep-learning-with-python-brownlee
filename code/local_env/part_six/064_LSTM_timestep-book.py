@@ -27,7 +27,7 @@ for i in range(0, len(alphabet) - seq_length, 1):
     dataY.append(char_to_int[seq_out])
 
 # reshape X to be [samples, time steps, features]
-X = numpy.reshape(dataX, (len(dataX), 1, seq_length))
+X = numpy.reshape(dataX, (len(dataX), seq_length, 1))
 
 # normalize
 X = X / float(len(alphabet))
@@ -48,7 +48,7 @@ print("Model Accuracy: %.2f%%" % (scores[1]*100))
 
 # demonstrate some model predictions
 for pattern in dataX:
-    x = numpy.reshape(pattern, (1, 1, len(pattern)))
+    x = numpy.reshape(pattern, (1, len(pattern), 1))
     x = x / float(len(alphabet))
     prediction = model.predict(x, verbose=0)
     index = numpy.argmax(prediction)

@@ -32,7 +32,7 @@ for i in range(0, len(alphabet) - seq_length, 1):
 X = numpy.reshape(dataX, (len(dataX), seq_length, 1))
 
 # normalize
-X = X / float(len(alphabet))
+X = X/float(len(alphabet))
 
 # one hot encode the output variable
 y = np_utils.to_categorical(dataY)
@@ -43,7 +43,7 @@ model = Sequential()
 model.add(LSTM(16, batch_input_shape=(batch_size, X.shape[1], X.shape[2]), stateful=True))
 model.add(Dense(y.shape[1], activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-for i in range(1200):
+for i in range(300):
     model.fit(X, y, epochs=1, batch_size=batch_size, verbose=2, shuffle=False)
     model.reset_states()
 

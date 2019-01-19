@@ -54,7 +54,7 @@ model.add(Dropout(0.2))
 model.add(Dense(y.shape[1], activation='softmax'))
 
 # load the network weights
-filename = "../saved_models_and_weights/070_weights-improvement-09-1.8433.hdf5"
+filename = "../saved_models_and_weights/070_weights-improvement-10-1.4253.hdf5"
 model.load_weights(filename)
 model.compile(loss='categorical_crossentropy', optimizer='adam')
 
@@ -62,7 +62,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam')
 start = numpy.random.randint(0, len(dataX)-1)
 pattern = dataX[start]
 print("Seed:")
-print("\"", '' .join([int_to_char[value] for value in pattern]), "\"")
+print("\"", ''.join([int_to_char[value] for value in pattern]), "\"")
 
 # generate characters
 for i in range(1000):

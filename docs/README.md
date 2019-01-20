@@ -96,7 +96,7 @@ by a factor of 10 to 100 and use a high momentum value of 0.9 or 0.99.
 network weights. Imposing a constraint on the size of network weights such as max-norm
 regularization with a size of 4 or 5 has been shown to improve results.
 
-### CNN Best Practices
+### CNN Best Practices  - copied from the book
 1. Input Receptive Field Dimensions: The default is 2D for images, but could be 1D
 such as for words in a sentence or 3D for video that adds a time dimension.
 2. Receptive Field Size: The patch should be as small as possible, but large enough to
@@ -123,14 +123,12 @@ often only used at the output end and may be stacked one, two or more deep.
 used such as between fully connected layers and perhaps after pooling layers.
 
 ### TODO
-1. Study Dropout Regularization - search for "norm of the weights"
-2. Study [SGD](https://keras.io/optimizers/).
-3. Study sgd's momentum.
-4. Write the Dropout section with my words.
-5. Write the CNN Best Practices section with my words.
-6. Study word embeddings.
-7. Study Recurrent Neural Networks.
-8. Study LSTM.
+1. Study [SGD](https://keras.io/optimizers/).
+2. Study sgd's momentum.
+3. Write the Dropout section with my words.
+4. Write the CNN Best Practices section with my words.
+5. Study Recurrent Neural Networks.
+6. Study LSTM.
 
 ### Important links:
 1. [iloc](https://stackoverflow.com/questions/19155718/select-pandas-rows-based-on-list-index);

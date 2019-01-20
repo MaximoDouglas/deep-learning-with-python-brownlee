@@ -13,6 +13,18 @@ Lessons, projects and notes taken from my reading of the Jason Brownlee's book: 
 9. **pandas**: pip3 install --user pandas
 10. **keras**: pip3 install --user keras
 
+## Summary of some lessons learned from the book
+1. How to define a neural network model in Keras.
+3. How to train a model on data.
+4. How to evaluate a model on data.
+5. Automatically splitting a training dataset into train and validation datasets.
+6. Manually and explicitly defining a training and validation dataset.
+7. Evaluating performance using k-fold cross validation, the gold standard technique.
+8. How to wrap Keras models so that they can be used with the scikit-learn
+machine learning library.
+9. How to use a wrapped Keras model as part of evaluating model performance in scikit-learn.
+10. How to perform hyperparameter tuning in scikit-learn using a wrapped Keras model.
+
 ## Lessons learned
 ### Libraries
 1. **Theano** and **Tensorflow** are two numerical libraries largely used to develop deep learning models.

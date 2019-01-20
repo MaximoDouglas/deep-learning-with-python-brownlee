@@ -1,4 +1,4 @@
-# Standardize images across the dataset, mean=0, stdev=1
+# Standardize images across the dataset, mean=0, stdev=1 - featurewise_std_normalization
 from keras.datasets import mnist
 from keras.preprocessing.image import ImageDataGenerator
 from matplotlib import pyplot

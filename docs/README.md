@@ -137,6 +137,4 @@ used such as between fully connected layers and perhaps after pooling layers.
 4. Study LSTM.
 
 ### Important links:
-1. [iloc](https://stackoverflow.com/questions/19155718/select-pandas-rows-based-on-list-index);
-2. [StratifiedKFold](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html);
 3. **CNN - Error on input Dimensions**: Runing the first cnn example direct from the book, I got ```Negative dimension size caused by subtracting 5 from 1 for 'conv2d_1/convolution' (op: 'Conv2D') with input shapes: [?,1,28,28], [5,5,28,32].```. This error was caused by the divergence between the code from the book and the input shape specification that keras 2 uses. Instead of .reshape(?, 1, 28, 28) I used .reshape(?, 28, 28, 1) and, on the input_dim I used input_dim=(28, 28, 1) and it worked. A detailed explanation in this [important link](https://stackoverflow.com/questions/41651628/negative-dimension-size-caused-by-subtracting-3-from-1-for-conv2d).
